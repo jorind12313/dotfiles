@@ -1,6 +1,6 @@
 #  Jorind's Dotfiles
 
-> Personal Wayland desktop configurations on Arch Linux running **MangoWM**, **Waybar**, **Rofi**, and **Foot**. Managed cleanly with GNU `stow`.
+> Personal Wayland desktop configurations on Arch Linux running **MangoWM**, **Quickshell**, **Rofi**, and **kitty**. Managed cleanly with GNU `stow`.
 
 ---
 
@@ -14,10 +14,11 @@
 
 | Component | Tool |
 | :--- | :--- |
-| **Window Manager** | [MangoWM](https://github.com/mangowm/mangowm) |
-| **Status Bar** | [Waybar](https://github.com/Alexays/Waybar) |
-| **Application Launcher** | [Rofi](https://github.com/davatorium/rofi) |
-| **Terminal** | [kitty](https://codeberg.org/dnkl/foot) |
+| **Window Manager** | [MangoWM](https://github.com/mangowm/mango) |
+| **Status Bar** | [Quickshell](https://git.outfoxxed.me/quickshell/quickshell) |
+| **Notifications** | [mako](https://mako-project.org) |
+| **Application Launcher** | [Rofi](https://davatorium.github.io/rofi) |
+| **Terminal** | [kitty](https://github.com/kovidgoyal/kitty) |
 | **System Info** | [Fastfetch](https://github.com/fastfetch-cli/fastfetch) |
 | **Shell** | [Fish](https://fishshell.com/) |
 
@@ -34,6 +35,9 @@
 | `SUPER` + `SHIFT` + `E` | Quit MangoWM |
 | `SUPER` + `1-9` | Switch Workspaces |
 | `SUPER` + `SHIFT` + `1-9` | Move Window to Workspace |
+| `Print` | Screenshot: full screen (saved + copied) |
+| `SHIFT` + `Print` | Screenshot: region (copied only) |
+| `SUPER` + `SHIFT` + `S` | Screenshot: region (saved only) |
 
 ---
 
@@ -51,7 +55,11 @@ sudo pacman -S stow
 
 # 3. Stow desired configurations
 stow mango
-stow waybar
-stow fastfetch
+stow quickshell
+stow mako
 stow rofi
-stow foot
+stow kitty
+stow fastfetch
+stow fish
+stow scripts
+```
