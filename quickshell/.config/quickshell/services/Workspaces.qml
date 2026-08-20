@@ -8,7 +8,7 @@ Singleton {
     id: root
 
     property int activeWorkspace: 1
-    readonly property int count: 5
+    readonly property int count: 1
 
     function setWorkspace(index) {
         activeWorkspace = index
@@ -21,6 +21,14 @@ Singleton {
         running: false
     }
 }
+
+
+
+
+
+
+
+
 
 
 

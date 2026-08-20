@@ -25,32 +25,10 @@ Scope {
                 anchors.centerIn: parent
                 z: 1
             }
-
-            // Main Bar Row
-            RowLayout {
-                anchors.fill: parent
-                anchors.leftMargin: 15
-                anchors.rightMargin: 15
-
-                // Left: Workspaces
-                WorkspaceWidget {
-                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                }
-
-                // Flexible Spacer
-                Item {
-                    Layout.fillWidth: true
-                }
-
-                // Right: Audio & Battery
-                RowLayout {
-                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    spacing: 15
-
-                    AudioWidget {}
-                    BatteryWidget {}
-                }
-            }
+          }
         }
-    }
-}
+      }
+
+
+
+
