@@ -1,7 +1,7 @@
-#  Jorind's Dotfiles
+#  Iori's Dotfiles
 
 > Personal Wayland desktop configurations on Arch Linux running **MangoWM**, **Quickshell**, **Rofi**, and **kitty**. Managed cleanly with GNU `stow`.
-
+  WORK IN PROGRESS!!
 ---
 
 ##  Screenshots
