@@ -2,46 +2,92 @@ import QtQuick
 import QtQuick.Layouts
 import "../services"
 
-RowLayout {
-    spacing: 12
+Item {
+    id: root
 
-    Repeater {
-        model: Workspaces.count
+    readonly property bool expanded: hoverHandler.hovered
+    readonly property int windowSize: Math.min(5, Workspaces.count)
 
-        Rectangle {
-            id: tagDot
-            
-            property int wsIndex: index + 1
-            property bool isActive: Workspaces.activeWorkspace === wsIndex
+    // 5-tag window centered on the active tag, clamped to [1, count]
+    readonly property int windowStart: {
+        const maxStart = Math.max(1, Workspaces.count - windowSize + 1)
+        const centered = Workspaces.activeWorkspace - Math.floor(windowSize / 2)
+        return Math.min(Math.max(centered, 1), maxStart)
+    }
 
-            implicitWidth: 24
-            implicitHeight: 24
-            radius: 4
-            color: isActive ? "#cba6f7" : "transparent" // Catppuccin Mauve highlight
+    implicitWidth: expanded ? expandedRow.implicitWidth : collapsedDot.implicitWidth
+    implicitHeight: 24
 
-            Text {
-                anchors.centerIn: parent
-                text: parent.wsIndex
-                color: parent.isActive ? "#11111b" : "#a6adc8"
-                font.pixelSize: 13
-                font.weight: parent.isActive ? Font.Bold : Font.Normal
-                font.family: "JetBrainsMono Nerd Font"
-                renderType: Text.NativeRendering
-            }
+    Behavior on implicitWidth {
+        NumberAnimation { duration: 140; easing.type: Easing.OutQuad }
+    }
 
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Workspaces.setWorkspace(parent.wsIndex)
-            }
+    HoverHandler {
+        id: hoverHandler
+    }
 
-            Behavior on color {
-                ColorAnimation { duration: 150 }
+    // Collapsed: just the active tag's number
+    Rectangle {
+        id: collapsedDot
+        visible: !root.expanded
+        anchors.verticalCenter: parent.verticalCenter
+        implicitWidth: 24
+        implicitHeight: 24
+        radius: 4
+        color: "#cba6f7"
+
+        Text {
+            anchors.centerIn: parent
+            text: Workspaces.activeWorkspace
+            color: "#11111b"
+            font.pixelSize: 13
+            font.weight: Font.Bold
+            font.family: "JetBrainsMono Nerd Font"
+            renderType: Text.NativeRendering
+        }
+    }
+
+    // Expanded on hover: a 5-tag window around the active tag
+    RowLayout {
+        id: expandedRow
+        visible: root.expanded
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 8
+
+        Repeater {
+            model: root.windowSize
+
+            Rectangle {
+                id: tagDot
+
+                property int wsIndex: root.windowStart + index
+                property bool isActive: Workspaces.activeWorkspace === wsIndex
+
+                implicitWidth: 24
+                implicitHeight: 24
+                radius: 4
+                color: isActive ? "#cba6f7" : "transparent" // Catppuccin Mauve highlight
+
+                Text {
+                    anchors.centerIn: parent
+                    text: parent.wsIndex
+                    color: parent.isActive ? "#11111b" : "#a6adc8"
+                    font.pixelSize: 13
+                    font.weight: parent.isActive ? Font.Bold : Font.Normal
+                    font.family: "JetBrainsMono Nerd Font"
+                    renderType: Text.NativeRendering
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: Workspaces.setWorkspace(parent.wsIndex)
+                }
+
+                Behavior on color {
+                    ColorAnimation { duration: 150 }
+                }
             }
         }
     }
 }
-
-
-
-
