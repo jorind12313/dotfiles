@@ -1,16 +1,16 @@
-# 🥭 Jorind's Dotfiles
+#  Jorind's Dotfiles
 
 > Personal Wayland desktop configurations on Arch Linux running **MangoWM**, **Waybar**, **Rofi**, and **Foot**. Managed cleanly with GNU `stow`.
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 
 
 ---
 
-## 🛠️ Components
+##  Components
 
 | Component | Tool |
 | :--- | :--- |
@@ -23,7 +23,7 @@
 
 ---
 
-## ⚡ Core Keybindings
+##  Core Keybindings
 
 | Keybinding | Action |
 | :--- | :--- |
@@ -37,7 +37,7 @@
 
 ---
 
-## 🚀 Installation & Deployment
+##  Installation & Deployment
 
 To replicate this setup on a fresh installation:
 
