@@ -7,7 +7,6 @@ import QtQuick
 Singleton {
     id: root
 
-    // Bind Pipewire directly so volume property changes stream instantly
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink]
     }

@@ -1,18 +1,14 @@
-# Neovim & Editor temporary files
 *.swp
 *.swo
 *~
 .netrwhist
 
-# Shell history & cache files
 .bash_history
 .zsh_history
 fish_variables
 fish_history
 
-# OS & Desktop generated files
 .DS_Store
 *.log
 
-# Sensitive environment variables (if any)
 .env

@@ -15,13 +15,11 @@ Singleton {
         viewProc.running = true
     }
 
-    // One-shot dispatcher for switching tags
     Process {
         id: viewProc
         running: false
     }
 
-    // Long-running watcher that streams tag state from mango's IPC socket
     Process {
         id: watchProc
         command: ["mmsg", "watch", "all-tags"]
@@ -49,7 +47,6 @@ Singleton {
         }
     }
 
-    // If mango restarts (SUPER+R) the socket drops and mmsg exits; reconnect
     Timer {
         id: restartTimer
         interval: 1000

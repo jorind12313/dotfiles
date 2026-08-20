@@ -7,8 +7,6 @@ import QtQuick
 Singleton {
     id: root
 
-    // Referencing UPower.devices forces device enumeration over D-Bus;
-    // without it, displayDevice never populates and stays unready.
     property var _devices: UPower.devices
 
     readonly property var device: UPower.displayDevice

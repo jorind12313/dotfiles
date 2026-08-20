@@ -8,7 +8,6 @@ Item {
     readonly property bool expanded: hoverHandler.hovered
     readonly property int windowSize: Math.min(5, Workspaces.count)
 
-    // 5-tag window centered on the active tag, clamped to [1, count]
     readonly property int windowStart: {
         const maxStart = Math.max(1, Workspaces.count - windowSize + 1)
         const centered = Workspaces.activeWorkspace - Math.floor(windowSize / 2)
@@ -26,7 +25,6 @@ Item {
         id: hoverHandler
     }
 
-    // Collapsed: just the active tag's number
     Rectangle {
         id: collapsedDot
         visible: !root.expanded
@@ -47,7 +45,6 @@ Item {
         }
     }
 
-    // Expanded on hover: a 5-tag window around the active tag
     RowLayout {
         id: expandedRow
         visible: root.expanded
@@ -66,7 +63,7 @@ Item {
                 implicitWidth: 24
                 implicitHeight: 24
                 radius: 4
-                color: isActive ? "#cba6f7" : "transparent" // Catppuccin Mauve highlight
+                color: isActive ? "#cba6f7" : "transparent"
 
                 Text {
                     anchors.centerIn: parent

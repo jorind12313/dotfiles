@@ -8,6 +8,7 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
+            id: barWindow
             required property var modelData
             screen: modelData
 
@@ -19,11 +20,8 @@ Scope {
 
             implicitHeight: 34
 
-            // Frosted glass: a translucent fill lets mango's compositor-side
-            // blur (blur=1 / blur_layer=1 in mango config.conf) show through.
             color: "#991e1e2e"
 
-            // Left: workspaces
             RowLayout {
                 anchors {
                     left: parent.left
@@ -34,13 +32,12 @@ Scope {
                 WorkspaceWidget {}
             }
 
-            // Center: clock
             ClockWidget {
                 anchors.centerIn: parent
                 z: 1
+                barWindow: barWindow
             }
 
-            // Right: volume + battery
             RowLayout {
                 anchors {
                     right: parent.right
@@ -54,7 +51,6 @@ Scope {
                 NetworkWidget {}
               }
 
-            // Subtle edge to separate the bar from blurred content beneath it
             Rectangle {
                 anchors {
                     left: parent.left
