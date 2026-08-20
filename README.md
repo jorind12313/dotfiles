@@ -6,7 +6,7 @@
 
 ## 📸 Screenshots
 
-*(Drop a screenshot of your desktop here! Name it `preview.png` and put it in a `media/` folder).*
+
 
 ---
 
@@ -17,7 +17,7 @@
 | **Window Manager** | [MangoWM](https://github.com/mangowm/mangowm) |
 | **Status Bar** | [Waybar](https://github.com/Alexays/Waybar) |
 | **Application Launcher** | [Rofi](https://github.com/davatorium/rofi) |
-| **Terminal** | [Foot](https://codeberg.org/dnkl/foot) |
+| **Terminal** | [kitty](https://codeberg.org/dnkl/foot) |
 | **System Info** | [Fastfetch](https://github.com/fastfetch-cli/fastfetch) |
 | **Shell** | [Fish](https://fishshell.com/) |
 
@@ -27,8 +27,8 @@
 
 | Keybinding | Action |
 | :--- | :--- |
-| `SUPER` + `SPACE` | Launch Rofi (`drun`) |
-| `ALT` + `RETURN` | Open Foot Terminal |
+| `ALT` + `SPACE` | Launch Rofi (`drun`) |
+| `ALT` + `RETURN` | Open kitty Terminal |
 | `ALT` + `Q` | Close Active Window |
 | `SUPER` + `R` | Reload MangoWM Config |
 | `SUPER` + `SHIFT` + `E` | Quit MangoWM |
