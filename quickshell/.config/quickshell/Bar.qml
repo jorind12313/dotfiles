@@ -20,26 +20,31 @@ Scope {
             implicitHeight: 32
             color: "#1e1e2e"
 
-            // 1. Perfectly centered clock anchored to parent
+            // Center Clock (Anchored directly to window)
             ClockWidget {
                 anchors.centerIn: parent
-                z: 1 // Keep above background
+                z: 1
             }
 
-            // 2. Row layout for left & right sides only
+            // Main Bar Row
             RowLayout {
                 anchors.fill: parent
                 anchors.leftMargin: 15
                 anchors.rightMargin: 15
 
-                // Left items (e.g. Workspaces placeholder)
+                // Left: Workspaces
+                WorkspaceWidget {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                }
+
+                // Flexible Spacer
                 Item {
                     Layout.fillWidth: true
                 }
 
-                // Right Section: Audio + Battery
+                // Right: Audio & Battery
                 RowLayout {
-                    Layout.alignment: Qt.AlignRight
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     spacing: 15
 
                     AudioWidget {}
