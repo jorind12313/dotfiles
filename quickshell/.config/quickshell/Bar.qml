@@ -21,7 +21,7 @@ Scope {
 
             // Frosted glass: a translucent fill lets mango's compositor-side
             // blur (blur=1 / blur_layer=1 in mango config.conf) show through.
-            color: "#cc1e1e2e"
+            color: "#991e1e2e"
 
             // Left: workspaces
             RowLayout {
@@ -51,7 +51,8 @@ Scope {
 
                 AudioWidget {}
                 BatteryWidget {}
-            }
+                NetworkWidget {}
+              }
 
             // Subtle edge to separate the bar from blurred content beneath it
             Rectangle {
