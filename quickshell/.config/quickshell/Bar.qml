@@ -19,6 +19,7 @@ Scope {
             }
 
             implicitHeight: 34
+            exclusiveZone: 34
 
             color: "#991e1e2e"
 
