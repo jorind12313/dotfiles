@@ -28,7 +28,8 @@ Scope {
                     leftMargin: 14
                     verticalCenter: parent.verticalCenter
                 }
-
+                
+                StartMenuWidget {}
                 WorkspaceWidget {}
             }
 
